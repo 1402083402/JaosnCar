@@ -1,7 +1,12 @@
 package com.mashibing.apipassenger.service;
 
+import com.mashibing.apipassenger.remote.ServiceVerificationcodeClient;
+import com.mashibing.internalcommon.dto.ResponseResult;
+import com.mashibing.internalcommon.response.NumberCodeResponse;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author Jason
@@ -10,15 +15,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class VerificationCodeService {
-    public  String generatorCode(String passengerPhone){
+    @Resource
+    private ServiceVerificationcodeClient serviceVerificationcodeClient;
 
-        String code="1111";
-        System.out.println("passengerPhone:"+passengerPhone);
-        //存入redis
-        //返回值
-        JSONObject result = new JSONObject();
-        result.put("code",1);
-        result.put("message","success");
-        return result.toString();
+    public String generatorCode(String passengerPhone) {
+
+        String code = "1111";
+        System.out.println("passengerPhone:" + passengerPhone);
+        ResponseResult<NumberCodeResponse> result = serviceVerificationcodeClient.getNumberCode();
+        //拿到验证码
+        Integer numberCode = result.getData().getNumberCode();
+        System.out.println("拿到的code:"+numberCode);
+        return numberCode.toString();
     }
 }

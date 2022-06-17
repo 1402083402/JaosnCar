@@ -20,6 +20,7 @@ public class NumberCodeController {
         int code = (int) ((Math.random() * 9 + 1) * Math.pow(10, size - 1));
         NumberCodeResponse response = new NumberCodeResponse();
         response.setNumberCode(code);
+        System.out.println("产生的验证码"+code);
         return ResponseResult.success(response);
     }
 }
