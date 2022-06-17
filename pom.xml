@@ -15,6 +15,7 @@
         <module>api-passenger</module>
         <module>cloud-nacos</module>
         <module>service-verificationcode</module>
+        <module>internal-common</module>
     </modules>
     <packaging>pom</packaging>
     <dependencies>
