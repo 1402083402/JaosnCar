@@ -22,7 +22,7 @@ public class VerificationCodeService {
 
         String code = "1111";
         System.out.println("passengerPhone:" + passengerPhone);
-        ResponseResult<NumberCodeResponse> result = serviceVerificationcodeClient.getNumberCode();
+        ResponseResult<NumberCodeResponse> result = serviceVerificationcodeClient.getNumberCode(6);
         //拿到验证码
         Integer numberCode = result.getData().getNumberCode();
         System.out.println("拿到的code:"+numberCode);
