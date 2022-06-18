@@ -1,4 +1,4 @@
-package com.mashibing.apipassenger.rquest;
+package com.mashibing.internalcommon.rquest;
 
 import lombok.Data;
 
@@ -10,4 +10,5 @@ import lombok.Data;
 @Data
 public class VerificationCodeDTO {
     private String passengerPhone;
+    private String verificationCode;
 }
