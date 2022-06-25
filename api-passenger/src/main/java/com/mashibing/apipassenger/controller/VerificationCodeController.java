@@ -40,6 +40,7 @@ public class VerificationCodeController {
         String verificationCode = verificationCodeDTO.getVerificationCode();
         String passengerPhone = verificationCodeDTO.getPassengerPhone();
         verificationCodeService.checkCode(passengerPhone,verificationCode);
+        return ResponseResult.success();
     }
 
 }
